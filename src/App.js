@@ -17,16 +17,16 @@ export default class App extends React.Component {
         { id: 3, name: "Bouzfrane Ahmed" }
       ]
     };
-    this.handelAddClient = this.handelAddClient.bind(this);
-    this.handeleDelete = this.handeleDelete.bind(this);
+    this.handleAddClient = this.handleAddClient.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   /**
-   * Handel add client
+   * handle add client
    * @param {, id, name} client
    */
 
-  handelAddClient = (client) => {
+  handleAddClient = (client) => {
     const { id, name } = client;
     if (name === "") {
       alert("Nom du client requis!");
@@ -38,10 +38,10 @@ export default class App extends React.Component {
   };
 
   /**
-   * HANDELE DELETE
+   * handle DELETE
    * @param {int} id
    */
-  handeleDelete = (id) => {
+  handleDelete = (id) => {
     const clients = [...this.state.clients];
     const index = clients.findIndex((client) => client.id === id);
     clients.splice(index, 1);
@@ -52,7 +52,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <h1>{this.title}</h1>
-        <ClientForm onClientAdd={this.handelAddClient} />
+        <ClientForm onClientAdd={this.handleAddClient} />
         <ul>
           <li>
             Nom du Client: <button></button>
@@ -62,7 +62,7 @@ export default class App extends React.Component {
               <Client
                 key={client.id}
                 details={client}
-                onDelete={this.handeleDelete}
+                onDelete={this.handleDelete}
               />
             );
           })}

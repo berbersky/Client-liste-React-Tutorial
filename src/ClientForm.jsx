@@ -4,23 +4,23 @@ export default class ClientForm extends Component {
   constructor(props) {
     super(props);
     this.state = { newClient: "" };
-    this.handelSubmit = this.handelSubmit.bind(this);
-    this.handeleChange = this.handeleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   /**
-   * HANDELE CHANGE
+   * handle CHANGE
    * @param {Event} event
    */
-  handeleChange = (event) =>
+  handleChange = (event) =>
     void this.setState({ newClient: event.currentTarget.value });
 
   /**
-   * HANDEL SUBMIT
+   * handle SUBMIT
    * @param {Event} event
    */
   //clientInput = React.createRef();
-  handelSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const id = new Date().getTime();
     const name = this.state.newClient;
@@ -37,11 +37,11 @@ export default class ClientForm extends Component {
       <form>
         <input
           value={this.state.newClient}
-          onChange={this.handeleChange}
+          onChange={this.handleChange}
           type="text"
           placeholder="Ajouter un client"
         />
-        <button onClick={this.handelSubmit}>Confirmer!</button>
+        <button onClick={this.handleSubmit}>Confirmer!</button>
       </form>
     );
   }
